@@ -15,10 +15,12 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: test_capybara_screenshot_development
+  database: experiments
   pool: 5
-  username: test_capybara_screenshot
-  password:
+  username: RoR
+  password: change_me
+  host: localhost
+  port: 5432
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -41,15 +43,19 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: test_capybara_screenshot_test
+  database: experiments_test
   pool: 5
-  username: test_capybara_screenshot
-  password:
+  username: RoR
+  password: change_me
+  host: localhost
+  port: 5432
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: test_capybara_screenshot_production
+  database: experiments
   pool: 5
-  username: test_capybara_screenshot
-  password:
+  username: RoR
+  password: change_me
+  host: localhost
+  port: 5432
