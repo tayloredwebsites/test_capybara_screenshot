@@ -11,6 +11,7 @@ describe 'Home Integration Tests' do
       visit home_index_path
       save_and_open_page
       Capybara::Screenshot.screenshot_and_open_image
+      Capybara::Screenshot.screenshot_and_save_page
     end
   end # crud actions
 end # Assemblies Integration Tests
