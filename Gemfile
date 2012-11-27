@@ -27,7 +27,7 @@ end
 group :test do
   # gem 'capybara', '~> 1.1' 
   gem 'capybara', '~> 2.0' 
-  gem 'capybara-screenshot'
+  # gem 'capybara-screenshot'
   gem 'launchy'
 end
 

@@ -5,11 +5,11 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
 require 'capybara/rails'
-require 'capybara-screenshot/rspec'
+# require 'capybara-screenshot/rspec'
 
 require 'capybara/dsl'
-require 'capybara-screenshot/saver'
-require 'capybara-screenshot/capybara'
+# require 'capybara-screenshot/saver'
+# require 'capybara-screenshot/capybara'
 
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -47,4 +47,14 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include Capybara::RSpecMatchers
   
+  # capybara 2 - save_and_open_page fix
+  # see: https://github.com/jnicklas/capybara/pull/500
+  #   - Runs 'RAILS_ENV=test bundle exec rake assets:precompile' before tests
+  # see: http://rubydoc.info/github/rspec/rspec-core/RSpec/Core/Hooks#before-instance_method
+  #   - rspec configuration to run something before a block of tests (here the entire :suite)
+  # see also config/environments/test.rb to specify test assets location
+  config.before (scope = :suite) do
+    %x[bundle exec rake assets:precompile]
+  end
+
 end
